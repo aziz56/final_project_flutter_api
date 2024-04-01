@@ -7,7 +7,7 @@ import 'package:final_project_flutter_api/data/repository/repository.dart';
 class LoginUsecase{
   var authRepository = AuthRepository();
 
-  Future<AuthModel> login(String email, String password) async {
-    return authRepository.login(email, password);
+  Future<AuthModel> login(String username, String password) async {
+    return authRepository.login(username, password);
   }
 }

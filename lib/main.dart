@@ -1,6 +1,7 @@
 import 'package:final_project_flutter_api/Domain/usecases/login_usecase.dart';
 import 'package:final_project_flutter_api/data/datasource/local/hive_datasource.dart';
-import 'package:final_project_flutter_api/presentation/TransaksiView.dart';
+import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
+import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
 import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
 import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider(LoginUsecase())),
         ChangeNotifierProvider(create:(_) => UserRegisterProvider())
+        // ChangeNotifierProvider(create: (_) => GetAllTransaksiProvider())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

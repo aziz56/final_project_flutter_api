@@ -6,11 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
-import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
+
 
 class UserRegisterScreen extends StatelessWidget {
   const UserRegisterScreen({Key? key});
