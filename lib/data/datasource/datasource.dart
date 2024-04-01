@@ -1,13 +1,15 @@
 import 'package:http/http.dart' as http;
 
-class DataSource{
+class DataSource {
   Future<String> getDataSource() async {
-    var url = 'https://api.covid19india.org/data.json';
+    var url = 'http://localhost:5262/api/Transaksi/GetTransaksi';
     var response = await http.get(Uri.parse(url));
-    
-    if(response.statusCode == 200){
+
+  
+
+    if (response.statusCode == 200) {
       return response.body;
-    }else{
+    } else {
       throw 'Error in loading data';
     }
   }
