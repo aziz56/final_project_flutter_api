@@ -8,7 +8,8 @@ class GetDataSource {
     var response = await http.get(Uri.parse(url), 
     headers: <String, String>
     {
-      'Content-Type': 'application/json; charset=UTF-8'
+      'Content-Type': 'application/json; charset=UTF-8',
+      
     });
 
     if (response.statusCode == 200) {

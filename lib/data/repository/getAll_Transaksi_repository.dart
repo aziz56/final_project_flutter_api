@@ -10,29 +10,13 @@ import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiMo
 
 class GetRepository {
   var _dataSource = GetDataSource();
-
-  // Future<List<GetTransaksiModel>> getAllTransaction() async {
-  //   try {
-  //     var response = await _dataSource.getDataSource();
-
-  //     var jsonArray = jsonDecode(await response).ToList(response);
-  //     for (var item in jsonArray) {
-  //      await GetTransaksiModel.fromJson(item);
-      
-  //     }
-  //     print('jsonArray : $jsonArray');
-  //     return jsonArray;
-  //   } catch (e) {
-  //     throw e;
-  //   }
-
-  Future<GetTransaksiModel> getAllTransaction() async {
+  Future<List<GetTransaksiModel>> getAllTransaction() async {
     var response = await _dataSource.getDataSource();
-    var jsonArray = jsonDecode(response);
+    print('response : $response');
+    var jsonArray = jsonDecode(response).Tolist();
     print('jsonArray : $jsonArray');
-    return GetTransaksiModel.fromJson(jsonArray);
-    
-
+    return jsonArray;
+  
     // List<GetTransaksiModel> list = [];
     // for (var item in jsonArray) {
     //   list.add(GetTransaksiModel.fromJson(item));

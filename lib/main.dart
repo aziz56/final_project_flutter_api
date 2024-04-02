@@ -1,12 +1,10 @@
-import 'package:final_project_flutter_api/Domain/usecases/get_transaksi_usecase.dart';
+import 'package:final_project_flutter_api/Domain/usecases/getTotalBalance.dart';
 import 'package:final_project_flutter_api/Domain/usecases/login_usecase.dart';
 import 'package:final_project_flutter_api/data/datasource/local/hive_datasource.dart';
 import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
 import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
-import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
-import 'package:final_project_flutter_api/presentation/screen/home_screen.dart';
-import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
+import 'package:final_project_flutter_api/presentation/screen/DashBoardScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +25,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider(LoginUsecase())),
         ChangeNotifierProvider(create:(_) => UserRegisterProvider()),
-        ChangeNotifierProvider(create:(_) => GetAllTransaksiProvider(GetTransaksiUseCase())),
+        ChangeNotifierProvider(create: (_) => DashBoardProvider(GetTotalBalanceUseCase()))
+        // ChangeNotifierProvider(create:(_) => GetAllTransaksiProvider(GetTransaksiUseCase())),
+        
         // ChangeNotifierProvider(create: (_) => GetAllTransaksiProvider())
       ],
       child: MaterialApp(
@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
           //   headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           // ),
       ),
-      home: TransaksiView()),
-    );
+      home: DashBoardScreen(),
+    ));
   }
 }
 
