@@ -4,7 +4,8 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class GetAllTransaksiProvider extends ChangeNotifier {
   var getAllTransaksi = GetTransaksiUseCase();
-  GetAllTransaksiProvider(this.getAllTransaksi);
+
+  GetAllTransaksiProvider(GetTransaksiUseCase getTransaksiUseCase);
   Future<void> getTransaksi() async {
     try 
     {

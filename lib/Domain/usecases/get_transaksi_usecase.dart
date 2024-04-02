@@ -8,7 +8,7 @@ class GetTransaksiUseCase {
 
 //buat methodnya
 
-  Future<List<GetTransaksiModel>> execute() async {
+  Future<GetTransaksiModel> execute() async {
     var response = await repository.getAllTransaction();
     return response;
   }
