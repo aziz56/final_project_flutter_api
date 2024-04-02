@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:final_project_flutter_api/data/datasource/remote/auth_remote_datasource.dart';
 import 'package:final_project_flutter_api/data/model/User/user_register.dart';
 import 'package:final_project_flutter_api/data/model/User/user_register_response.dart';
@@ -17,9 +16,7 @@ class RegisterRemoteDataSource {
         },
         body: jsonEncode({
           'username': userRegister.username,
-    
           'password': userRegister.password,
-         
 
         })
     );

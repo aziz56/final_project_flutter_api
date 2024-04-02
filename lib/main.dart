@@ -1,9 +1,11 @@
+import 'package:final_project_flutter_api/Domain/usecases/get_transaksi_usecase.dart';
 import 'package:final_project_flutter_api/Domain/usecases/login_usecase.dart';
 import 'package:final_project_flutter_api/data/datasource/local/hive_datasource.dart';
 import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
-import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
 import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
+import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
+import 'package:final_project_flutter_api/presentation/screen/home_screen.dart';
 import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,24 +26,23 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider(LoginUsecase())),
-        ChangeNotifierProvider(create:(_) => UserRegisterProvider())
+        ChangeNotifierProvider(create:(_) => UserRegisterProvider()),
+        ChangeNotifierProvider(create:(_) => GetAllTransaksiProvider(GetTransaksiUseCase())),
         // ChangeNotifierProvider(create: (_) => GetAllTransaksiProvider())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: Colors.blue,
-          ).copyWith(secondary: Colors.red),
-          textTheme: const TextTheme(
-            headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-      
-      
+          // primarySwatch: Colors.blue,
+          // colorScheme: ColorScheme.fromSwatch(
+          //   primarySwatch: Colors.blue,
+          // ).copyWith(secondary: Colors.red),
+          // textTheme: const TextTheme(
+          //   headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          // ),
       ),
-      home: const LoginScreen(),
-    ));
+      home: TransaksiView()),
+    );
   }
 }
 

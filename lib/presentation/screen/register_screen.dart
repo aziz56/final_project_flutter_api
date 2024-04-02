@@ -1,5 +1,4 @@
 import 'package:final_project_flutter_api/Domain/entities/user_registerentity.dart';
-import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
 import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
 import 'package:flutter/material.dart';

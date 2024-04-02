@@ -1,40 +1,50 @@
-// //Make A Table from the data that we get from the API
+//GetAllTransaksiDenganListview
+import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiModel.dart';
+import 'package:flutter/material.dart';
+//import UseCase
+import 'package:final_project_flutter_api/Domain/usecases/get_transaksi_usecase.dart';
+//import GetTransaksientity
 
-// import 'package:final_project_flutter_api/Domain/entities/GetTransaksiEntity.dart';
-// import 'package:final_project_flutter_api/Domain/usecases/get_transaksi_usecase.dart';
-// import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiModel.dart';
-// import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
-// import 'package:final_project_flutter_api/presentation/widgets/GetAllWidget.dart';
-// import 'package:flutter/material.dart';
-// import 'package:final_project_flutter_api/data/repository/repository.dart';
-// import 'package:final_project_flutter_api/data/datasource/remote/GetDataSource.dart';
-// import 'package:final_project_flutter_api/Domain/GetTransactionModel.dart';
-// import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-// import 'package:provider/provider.dart';
+import 'package:final_project_flutter_api/Domain/entities/GetTransaksiEntity.dart';
 
-// //Get Data From Model
-// class TransaksiView extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Transaksi'),
-//       ),
-//       body: ChangeNotifierProvider(
-//         create: (context) => GetAllTransaksiProvider(),
-//         child: Consumer<GetAllTransaksiProvider>(
-//           builder: (context, provider, child) {
-//             return PagedListView<int, GetTransaksiUseCase>(
-//               pagingController: provider.pagingController,
-//               builderDelegate: PagedChildBuilderDelegate<GetTransaksiUseCase>(
-//                 itemBuilder: (context, item, index) => WidgetTransaksi(
-//                   getTransaksiModel: item as GetTransaksiModel,
-//                 ),
-//               ),
-//             );
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
+//Make a stateless widget that fetch data from use case
+
+class TransaksiView extends StatelessWidget {
+var getTransaksiUseCase = GetTransaksiUseCase();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Transaksi'),
+      ),
+      body: FutureBuilder<List<GetTransaksiModel>>(
+        future: getTransaksiUseCase.execute(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+          itemCount: snapshot.data!.length,
+          itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(snapshot.data![index].namaMenu),
+            subtitle: Text(snapshot.data![index].hargaMenu.toString()),
+          );
+          },
+        );
+          } else {
+            return Center(
+              child: Text('Error'),
+            );
+          }
+        },
+      ),
+    );
+  }
+}
+
+
+

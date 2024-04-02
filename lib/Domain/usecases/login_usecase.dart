@@ -2,7 +2,7 @@
 
 import 'package:final_project_flutter_api/data/model/User/auth_model.dart';
 import 'package:final_project_flutter_api/data/repository/auth_repo.dart';
-import 'package:final_project_flutter_api/data/repository/repository.dart';
+import 'package:final_project_flutter_api/data/repository/getAll_Transaksi_repository.dart';
 
 class LoginUsecase{
   var authRepository = AuthRepository();

@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
 
-import 'package:final_project_flutter_api/data/model/User/user.dart';
-import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import 'home_screen.dart'; // Pastikan Anda mengimpor home_screen.dart jika belum melakukannya.

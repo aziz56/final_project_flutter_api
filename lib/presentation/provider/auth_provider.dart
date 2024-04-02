@@ -9,6 +9,7 @@ class AuthProvider extends ChangeNotifier {
   Future<void> login(BuildContext context, String username, String password) async {
     try {
       AuthModel authModel = await _loginUsecase.login(username, password);
+
       if (authModel.username != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           Navigator.pushReplacement(
