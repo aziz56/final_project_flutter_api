@@ -1,4 +1,3 @@
-
 // class GetTransaksiModel {
 //   final int id;
 //   final String namaPelanggan;
@@ -45,13 +44,11 @@
 //   );
 // }
 class GetTransaksiModel {
-
-   String namaPelanggan;
-   String namaMenu;
-   double hargaMenu;
-   int jumlahPesanan;
-   double totalPenjualan;
-
+  String namaPelanggan;
+  String namaMenu;
+  double hargaMenu;
+  int jumlahPesanan;
+  double totalPenjualan;
 
   GetTransaksiModel({
     required this.namaPelanggan,
@@ -59,21 +56,25 @@ class GetTransaksiModel {
     required this.hargaMenu,
     required this.jumlahPesanan,
     required this.totalPenjualan,
-    
   });
   Map<String, dynamic> toJson() => {
-    "nama_pelanggan": namaPelanggan,
-    "nama_menu": namaMenu,
-    "harga_menu": hargaMenu,
-    "jumlah_pesanan": jumlahPesanan,
-    "total_penjualan": totalPenjualan,
-  };
-  factory GetTransaksiModel.fromJson(Map<String, dynamic> json) => GetTransaksiModel(
-    namaPelanggan: json["nama_pelanggan"],
-    namaMenu: json["nama_menu"],
-    hargaMenu: json["harga_menu"],
-    jumlahPesanan: json["jumlah_pesanan"],
-    totalPenjualan: json["total_penjualan"],
-  
-  );
+        "nama_pelanggan": namaPelanggan,
+        "nama_menu": namaMenu,
+        "harga_menu": hargaMenu,
+        "jumlah_pesanan": jumlahPesanan,
+        "total_penjualan": totalPenjualan,
+      };
+  factory GetTransaksiModel.fromJson(Map<String, dynamic> json) {
+    return GetTransaksiModel(
+      namaPelanggan: json["nama_pelanggan"] ?? "Kosong",
+      namaMenu: json["nama_menu"] ?? "Kosong",
+      hargaMenu: json["harga_menu"] ?? "Kosong",
+      jumlahPesanan: json["jumlah_pesanan"] ?? "Kosong",
+      totalPenjualan: json["total_penjualan"] ?? "Kosong",
+    );
+  }
+
+  String toString() {
+    return 'GetTransaksiModel{namaPelanggan: $namaPelanggan, namaMenu: $namaMenu, hargaMenu: $hargaMenu, jumlahPesanan: $jumlahPesanan, totalPenjualan: $totalPenjualan}';
+  }
 }

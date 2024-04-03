@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiModel.dart';
 import 'package:http/http.dart' as http;
 
@@ -10,10 +9,9 @@ class GetDataSource {
     {
       'accept': '*/*',
       'Content-Type': 'application/json; charset=UTF-8',
-
-
-      
-    });
+    },
+    
+    );
 
     if (response.statusCode == 200) {
       //  print(response.body);

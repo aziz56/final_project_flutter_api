@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 class DashBoardProvider extends ChangeNotifier {
   final GetTotalBalanceUseCase getTotalBalanceUseCase;
   DashBoardProvider(this.getTotalBalanceUseCase);
+ // Change this to TotalBalance type
 
-  TotalBalance? totalBalance; // Change this to TotalBalance type
-
-  Future<void> fetchTotalBalance() async {
+  Future<int> fetchTotalBalance() async {
     try {
-      totalBalance = await getTotalBalanceUseCase.execute();
+      var totalBalance = await getTotalBalanceUseCase.execute();
+      return totalBalance;
+
     } catch (e) {
       print(e);
+      return 0; // return a default value
     }
     notifyListeners();
   }

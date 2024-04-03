@@ -28,7 +28,7 @@ class DashBoardScreen extends StatelessWidget {
                   Consumer<DashBoardProvider>(
                     builder: (context, provider, _) {
                       return Text(
-                          'Total Balance: \$${provider.totalBalance?.balance ?? 0}'); // Assuming balance is an int property of TotalBalance
+                          'Total Balance: \$${provider.fetchTotalBalance()}'); // Assuming balance is an int property of TotalBalance
                     },
                   ),
                 ],

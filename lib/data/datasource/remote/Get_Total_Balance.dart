@@ -13,7 +13,7 @@ class GetTotalBalance {
       var data = response.body;
       print(response.body);
       print(response.statusCode);
-      return data;
+      return data ;
     } else {
       throw Exception('Failed to get data');
     }

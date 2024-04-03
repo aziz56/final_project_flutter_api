@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           //   headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           // ),
       ),
-      home: DashBoardScreen(),
+      home: TransaksiView(),
     ));
   }
 }
