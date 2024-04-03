@@ -1,10 +1,12 @@
 import 'package:final_project_flutter_api/Domain/usecases/getTotalBalance.dart';
 import 'package:final_project_flutter_api/Domain/usecases/login_usecase.dart';
 import 'package:final_project_flutter_api/data/datasource/local/hive_datasource.dart';
+import 'package:final_project_flutter_api/presentation/provider/DashboardProvider.dart';
 import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
 import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
 import 'package:final_project_flutter_api/presentation/screen/DashBoardScreen.dart';
+import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

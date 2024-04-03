@@ -4,19 +4,33 @@ import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTotalBalanc
 import 'package:flutter/foundation.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class DashBoardProvider extends ChangeNotifier {
-  final GetTotalBalanceUseCase getTotalBalanceUseCase;
-  DashBoardProvider(this.getTotalBalanceUseCase);
+// class DashBoardProvider extends ChangeNotifier {
+//   final GetTotalBalanceUseCase getTotalBalanceUseCase;
+//   DashBoardProvider(this.getTotalBalanceUseCase);
 
-  TotalBalance? totalBalance; // Change this to TotalBalance type
+//   TotalBalance? totalBalance; // Change this to TotalBalance type
 
-  Future<void> fetchTotalBalance() async {
+//   Future<void> fetchTotalBalance() async {
+//     try {
+//       totalBalance = await getTotalBalanceUseCase.execute();
+//     } catch (e) {
+//       print(e);
+//     }
+//     notifyListeners();
+//   }
+// }
+
+class TransaksiProvider extends ChangeNotifier {
+  final GetTransaksiUseCase getTransaksiUseCase;
+  TransaksiProvider(this.getTransaksiUseCase);
+
+  Future<void> fetchTransaksi() async {
     try {
-      totalBalance = await getTotalBalanceUseCase.execute();
+      final response = await getTransaksiUseCase.execute();
+      print(response);
     } catch (e) {
       print(e);
     }
     notifyListeners();
   }
 }
-

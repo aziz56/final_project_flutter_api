@@ -12,7 +12,7 @@ class AuthRemoteDataSource {
     var response = await http.post(Uri.parse(baseUrl + 'Users/login'),
         headers: 
         {
-          'accept': 'application/json',
+          'accept': '*/*',
           'Content-Type': 'application/json'
           
         },

@@ -11,7 +11,7 @@ class RegisterRemoteDataSource {
   Future<UserRegisterReponse> register(UserRegister userRegister) async {
     var response = await http.post(Uri.parse(baseUrl + 'Users/register'),
         headers: {
-          'accept': 'application/json',
+          'accept': '*/*',
           'Content-Type': 'application/json'
         },
         body: jsonEncode({
