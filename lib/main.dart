@@ -5,6 +5,7 @@ import 'package:final_project_flutter_api/presentation/provider/DashboardProvide
 import 'package:final_project_flutter_api/presentation/provider/TransaksiProvider.dart';
 import 'package:final_project_flutter_api/presentation/provider/auth_provider.dart';
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
+import 'package:final_project_flutter_api/presentation/screen/AddTransaksiScreen.dart';
 import 'package:final_project_flutter_api/presentation/screen/DashBoardScreen.dart';
 import 'package:final_project_flutter_api/presentation/screen/TransaksiView.dart';
 import 'package:flutter/material.dart';

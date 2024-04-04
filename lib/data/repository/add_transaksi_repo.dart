@@ -7,6 +7,6 @@ class AddTransaksiRepo
 
   Future<void> addTransaksi(AddTransaksiModel addTransaksiModel) async 
   {
-    
+    var addTransaksi = await addTransaksiDatasource.addTransaksiData(addTransaksiModel);
   }
 }

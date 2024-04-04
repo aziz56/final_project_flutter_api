@@ -24,4 +24,17 @@ class MenuModel {
         "harga_menu": hargaMenu,
         "deskripsi_menu": deskripsiMenu,
     };
+     @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is MenuModel &&
+      other.idMenu == idMenu &&
+      other.namaMenu == namaMenu &&
+      other.hargaMenu == hargaMenu &&
+      other.deskripsiMenu == deskripsiMenu;
+  }
+
+  @override
+  int get hashCode => idMenu.hashCode ^ namaMenu.hashCode ^ hargaMenu.hashCode ^ deskripsiMenu.hashCode;
 }
