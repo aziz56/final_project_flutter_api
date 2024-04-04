@@ -1,5 +1,5 @@
 class TotalBalance {
-    int balance;
+    double balance;
 
     TotalBalance({
         required this.balance,

@@ -5,11 +5,13 @@ import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTotalBalanc
 
 class GetTotalBalanceRepository {
   var getTotalBalanceFromSource = GetTotalBalance();
-  Future<int> getTotalBalance() async {
-    var jsonArray =
-        jsonDecode((await getTotalBalanceFromSource.getTotalBalance()));
-    TotalBalance totalBalance = TotalBalance(balance: int.parse(jsonArray));
-    return totalBalance.balance;
-    // return TotalBalance.fromJson(jsonArray) as int;
+  Future<double> getTotalBalance() async {
+    var balanceString = await getTotalBalanceFromSource.getTotalBalance();
+    print('BalanceStringRepo: ${balanceString}');
+    // Konversi string ke double
+    double balance = double.parse(balanceString);
+    print('BalanceRepo: ${balance}');
+    return balance;
   }
 }
+
