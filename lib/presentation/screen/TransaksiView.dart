@@ -177,8 +177,7 @@ class TransaksiView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFEFEFEF), // Retro background color
       appBar: AppBar(
-        backgroundColor:
-            Color.fromARGB(255, 217, 2, 224), // Retro app bar color
+        backgroundColor: Color.fromARGB(255, 217, 2, 224), // Retro app bar color
         title: Text(
           'Transaksi',
           style: TextStyle(
@@ -199,38 +198,34 @@ class TransaksiView extends StatelessWidget {
               ),
             );
           } else if (snapshot.hasData) {
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: snapshot.data!.map((transaksi) {
-                  return Container(
-                    width: 200, // Lebar kartu horizontal
-                    child: Card(
-                      color: Colors.grey[300], // Retro card color
-                      elevation: 3.0, // Retro card elevation
-                      margin: EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 16.0), // Retro card margin
-                      child: ListTile(
-                        title: Text(
-                          transaksi.namaPelanggan,
-                          style: TextStyle(
-                            fontFamily: 'RetroFont', // Custom retro font family
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'Menu: ${transaksi.namaMenu}\n'
-                          'Harga: ${transaksi.hargaMenu}\n'
-                          'Total: ${transaksi.totalPenjualan}',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                          ),
-                        ),
+            return ListView(
+              scrollDirection: Axis.vertical,
+              children: snapshot.data!.map((transaksi) {
+                return Card(
+                  color: Colors.grey[300], // Retro card color
+                  elevation: 3.0, // Retro card elevation
+                  margin: EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 16.0), // Retro card margin
+                  child: ListTile(
+                    title: Text(
+                      transaksi.namaPelanggan,
+                      style: TextStyle(
+                        fontFamily: 'RetroFont', // Custom retro font family
+                        fontSize: 18.0,
                       ),
                     ),
-                  );
-                }).toList(),
-              ),
+                    subtitle: Text(
+                      'Menu: ${transaksi.namaMenu}\n'
+                      'Harga: ${transaksi.hargaMenu}\n'
+                      'Total: ${transaksi.totalPenjualan}',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
             );
           } else {
             return Center(
@@ -247,8 +242,11 @@ class TransaksiView extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()async {
-          await MaterialPageRoute(builder: (context) => AddTransaksiScreen());
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTransaksiScreen()),
+          );
         },
         child: Icon(Icons.add), // Icon tambah
         backgroundColor: Colors.green, // Warna latar belakang FAB

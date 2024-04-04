@@ -169,6 +169,7 @@ import 'package:final_project_flutter_api/Domain/usecases/get_menu_usecase.dart'
 import 'package:final_project_flutter_api/Domain/usecases/postTransaksiUseCase.dart';
 import 'package:final_project_flutter_api/data/model/AddTransaksi/AddTransaksiModel.dart';
 import 'package:final_project_flutter_api/data/model/GetTransaksi/GetModelMenu.dart';
+import 'package:final_project_flutter_api/presentation/screen/DashBoardScreen.dart';
 import 'package:flutter/material.dart';
 
 // Import models and use cases
@@ -266,7 +267,7 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
             ),
             SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () async{
+              onPressed: () async {
                 AddTransaksiModel addTransaksiModel = AddTransaksiModel(
                   namaPelanggan: namaPelangganController.text,
                   hargaMenu: (selectedMenu?.hargaMenu ?? 0).toInt(),
@@ -276,7 +277,10 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
                   idMeja: int.parse(idMejaController.text),
                 );
                 await addTransaksiUseCase.execute(addTransaksiModel);
-                print(addTransaksiUseCase.execute(addTransaksiModel));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => DashBoardScreen()),
+                );
               },
               child: Text('Submit'),
             ),

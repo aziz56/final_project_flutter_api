@@ -27,8 +27,18 @@ class DashBoardScreen extends StatelessWidget {
                   ),
                   Consumer<DashBoardProvider>(
                     builder: (context, provider, _) {
-                      return Text(
-                          'Total Balance: \$${provider.fetchTotalBalance()}'); // Assuming balance is an int property of TotalBalance
+                      return FutureBuilder<int>(
+                        future: provider.fetchTotalBalance(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return CircularProgressIndicator();
+                          } else {
+                            return Text(
+                              'Total Balance: \$${snapshot.data ?? 0}',
+                            );
+                          }
+                        },
+                      );
                     },
                   ),
                 ],

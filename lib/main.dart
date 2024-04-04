@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider(LoginUsecase())),
         ChangeNotifierProvider(create:(_) => UserRegisterProvider()),
-        ChangeNotifierProvider(create: (_) => DashBoardProvider(GetTotalBalanceUseCase()))
+        ChangeNotifierProvider(create: (_) => DashBoardProvider()),
         // ChangeNotifierProvider(create:(_) => GetAllTransaksiProvider(GetTransaksiUseCase())),
         
         // ChangeNotifierProvider(create: (_) => GetAllTransaksiProvider())
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           //   headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           // ),
       ),
-      home: TransaksiView(),
+      home: DashBoardScreen(),
     ));
   }
 }
