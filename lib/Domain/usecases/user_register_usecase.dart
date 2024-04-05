@@ -4,7 +4,7 @@ import 'package:final_project_flutter_api/data/model/User/user_register_response
 import 'package:final_project_flutter_api/data/repository/register_repository.dart';
 
 class UserRegisterUsecase{
-  var _userRegisterRepository = RegisterRepository();
+  final _userRegisterRepository = RegisterRepository();
 
   Future<UserRegisterReponse> register(UserRegisterEntity userRegisterEntity) async {
     try {
@@ -14,7 +14,7 @@ class UserRegisterUsecase{
       );
       return _userRegisterRepository.register(userRegisterModel);
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 }

@@ -2,26 +2,25 @@ import 'package:final_project_flutter_api/Domain/entities/user_registerentity.da
 import 'package:final_project_flutter_api/presentation/provider/register_provider.dart';
 import 'package:final_project_flutter_api/presentation/screen/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 
 
 class UserRegisterScreen extends StatelessWidget {
-  const UserRegisterScreen({Key? key});
+  const UserRegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _usernameController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
-    GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register'),
+        title: const Text('Register'),
       ),
       body: Form(
-        key: _formKey,
+        key: formKey,
         child: ListView(
           children: [
             Padding(
@@ -30,29 +29,29 @@ class UserRegisterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Create your account here!',
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  Text(
+                  const Text(
                     'You should register first',
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: _usernameController,
+                          controller: usernameController,
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter the first name';
                             }
                             return null;
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'username',
                             border: OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(
@@ -61,17 +60,17 @@ class UserRegisterScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       Expanded(
                         child: TextFormField(
-                          controller: _passwordController,
+                          controller: passwordController,
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter the last name';
                             }
                             return null;
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'password',
                             border: OutlineInputBorder(),
                             enabledBorder: OutlineInputBorder(
@@ -80,16 +79,16 @@ class UserRegisterScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 20),
-                      Container(
+                      const SizedBox(width: 20),
+                      SizedBox(
                         height: 50,
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
+                            if (formKey.currentState!.validate()) {
                               UserRegisterEntity userRegisterEntity = UserRegisterEntity(
-                                username: _usernameController.text,
-                                password: _passwordController.text,
+                                username: usernameController.text,
+                                password: passwordController.text,
                               );
                               
                 
@@ -105,26 +104,26 @@ class UserRegisterScreen extends StatelessWidget {
                             )),
                             backgroundColor: MaterialStateProperty.all(Colors.indigo),
                           ),
-                          child: Text('Register', style: TextStyle(color: Colors.white, fontSize: 16)),
+                          child: const Text('Register', style: TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Already have an account?'),
+                      const Text('Already have an account?'),
                       TextButton(
                         onPressed: () {
-                          WidgetsBinding.instance!.addPostFrameCallback((_) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
                             Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                              MaterialPageRoute(builder: (context) => const LoginScreen()),
                             );
                           });
                         },
-                        child: Text('Login', style: TextStyle(color: Colors.blue)),
+                        child: const Text('Login', style: TextStyle(color: Colors.blue)),
                       ),
                     ],
                   ),

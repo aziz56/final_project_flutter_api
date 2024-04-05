@@ -4,7 +4,7 @@ class GetTotalTransaksiUseCase {
   var totalTransakiRepo = GetTotalTransaksiRepo();
   Future<int> execute() async {
     var response = await totalTransakiRepo.getTotalTransaksi();
-    print('responseTotalTransaksiFromUseCase: ${response}');
+    print('responseTotalTransaksiFromUseCase: $response');
     return response;
   }
 }

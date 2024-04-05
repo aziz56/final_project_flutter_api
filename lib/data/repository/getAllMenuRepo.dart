@@ -5,9 +5,9 @@ import 'package:final_project_flutter_api/data/model/GetTransaksi/GetModelMenu.d
 
 class GetAllMenuRep{
   Future<List<MenuModel>> getAllMenu() async {
-    var _dataSource = GetAllMenuData();
+    var dataSource = GetAllMenuData();
     
-    var response = await _dataSource.getAllMenuData();
+    var response = await dataSource.getAllMenuData();
     // print(response.toString());
     print(
         "======================================================================");

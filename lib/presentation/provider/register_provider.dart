@@ -13,7 +13,7 @@ class UserRegisterProvider extends ChangeNotifier{
       notifyListeners();
       return response;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

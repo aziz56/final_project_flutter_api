@@ -2,7 +2,6 @@
 // Creator: Muhammad Abdul Aziz
 
 import 'dart:convert';
-import 'dart:js_util';
 
 import 'package:final_project_flutter_api/data/datasource/remote/GetDataSource.dart';
 
@@ -42,8 +41,8 @@ import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiMo
 // }
 class GetRepository {
   Future<List<GetTransaksiModel>> getAllTransaksi() async {
-    var _dataSource = GetDataSource();
-    var response = await _dataSource.getDataSource();
+    var dataSource = GetDataSource();
+    var response = await dataSource.getDataSource();
     // print(response.toString());
     print(
         "======================================================================");

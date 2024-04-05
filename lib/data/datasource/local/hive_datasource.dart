@@ -1,5 +1,4 @@
 import 'package:final_project_flutter_api/data/model/User/user.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HiveDataSource {

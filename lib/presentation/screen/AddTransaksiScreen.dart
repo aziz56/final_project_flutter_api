@@ -175,6 +175,8 @@ import 'package:flutter/material.dart';
 // Import models and use cases
 
 class AddTransaksiScreen extends StatefulWidget {
+  const AddTransaksiScreen({super.key});
+
   @override
   _AddTransaksiScreenState createState() => _AddTransaksiScreenState();
 }
@@ -192,7 +194,7 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Transaction'),
+        title: const Text('Add Transaction'),
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
@@ -203,7 +205,7 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
               future: getAllMenuUseCase.execute(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 } else {
@@ -225,14 +227,14 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
                 }
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text('Harga Menu: ${selectedMenu?.hargaMenu ?? ""}'),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text('Jumlah Pesanan: $jumlahPesanan'),
             Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.remove),
+                  icon: const Icon(Icons.remove),
                   onPressed: () {
                     setState(() {
                       if (jumlahPesanan > 0) jumlahPesanan--;
@@ -241,7 +243,7 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
                 ),
                 Text('$jumlahPesanan'),
                 IconButton(
-                  icon: Icon(Icons.add),
+                  icon: const Icon(Icons.add),
                   onPressed: () {
                     setState(() {
                       jumlahPesanan++;
@@ -250,22 +252,22 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: amountController,
-              decoration: InputDecoration(labelText: 'Amount'),
+              decoration: const InputDecoration(labelText: 'Amount'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: idMejaController,
-              decoration: InputDecoration(labelText: 'ID Meja'),
+              decoration: const InputDecoration(labelText: 'ID Meja'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: namaPelangganController,
-              decoration: InputDecoration(labelText: 'Nama Pelanggan'),
+              decoration: const InputDecoration(labelText: 'Nama Pelanggan'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
                 AddTransaksiModel addTransaksiModel = AddTransaksiModel(
@@ -279,10 +281,10 @@ class _AddTransaksiScreenState extends State<AddTransaksiScreen> {
                 await addTransaksiUseCase.execute(addTransaksiModel);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => DashBoardScreen()),
+                  MaterialPageRoute(builder: (context) => const DashBoardScreen()),
                 );
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),

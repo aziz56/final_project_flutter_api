@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class AddTransaksiDataSource {
   Future<void> addTransaksiData(AddTransaksiModel addTransaksiModel) async {
-    var url = 'http://localhost:5262/api/Transaksi/InsertTransaksi';
+    var url = 'https://app.actualsolusi.com/bsi/pos_resto/api/Transaksi/InsertTransaksi';
     var body = json.encode(addTransaksiModel.toJson()); // Convert model to JSON
     var response = await http.post(
       Uri.parse(url),

@@ -5,11 +5,11 @@ import 'package:final_project_flutter_api/data/model/User/user_register_response
 import 'package:http/http.dart' as http;
 
 class RegisterRemoteDataSource {
-  var _authRemoteDataSource = AuthRemoteDataSource();
-  var baseUrl = 'http://localhost:5262/api/';
+  final _authRemoteDataSource = AuthRemoteDataSource();
+  var baseUrl = 'https://app.actualsolusi.com/bsi/pos_resto/api/';
 
   Future<UserRegisterReponse> register(UserRegister userRegister) async {
-    var response = await http.post(Uri.parse(baseUrl + 'Users/register'),
+    var response = await http.post(Uri.parse('${baseUrl}Users/register'),
         headers: {
           'accept': '*/*',
           'Content-Type': 'application/json'

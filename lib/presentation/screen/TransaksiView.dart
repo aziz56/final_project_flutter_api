@@ -9,7 +9,6 @@ import 'package:final_project_flutter_api/Domain/usecases/get_transaksi_usecase.
 
 //Make a stateless widget that fetch data from use case
 
-import 'package:flutter/material.dart';
 
 // class TransaksiView extends StatelessWidget {
 
@@ -172,13 +171,15 @@ import 'package:flutter/material.dart';
 class TransaksiView extends StatelessWidget {
   var getTransaksiUseCase = GetTransaksiUseCase();
 
+  TransaksiView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEFEFEF), // Retro background color
+      backgroundColor: const Color(0xFFEFEFEF), // Retro background color
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 217, 2, 224), // Retro app bar color
-        title: Text(
+        backgroundColor: const Color.fromARGB(255, 217, 2, 224), // Retro app bar color
+        title: const Text(
           'Transaksi',
           style: TextStyle(
             fontFamily: 'RetroFont', // Custom retro font family
@@ -191,7 +192,7 @@ class TransaksiView extends StatelessWidget {
         future: getTransaksiUseCase.execute(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
                     Colors.orangeAccent), // Retro color for progress indicator
@@ -204,13 +205,13 @@ class TransaksiView extends StatelessWidget {
                 return Card(
                   color: Colors.grey[300], // Retro card color
                   elevation: 3.0, // Retro card elevation
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                       vertical: 8.0,
                       horizontal: 16.0), // Retro card margin
                   child: ListTile(
                     title: Text(
                       transaksi.namaPelanggan,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'RetroFont', // Custom retro font family
                         fontSize: 18.0,
                       ),
@@ -219,7 +220,7 @@ class TransaksiView extends StatelessWidget {
                       'Menu: ${transaksi.namaMenu}\n'
                       'Harga: ${transaksi.hargaMenu}\n'
                       'Total: ${transaksi.totalPenjualan}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                       ),
                     ),
@@ -228,7 +229,7 @@ class TransaksiView extends StatelessWidget {
               }).toList(),
             );
           } else {
-            return Center(
+            return const Center(
               child: Text(
                 'Error',
                 style: TextStyle(
@@ -245,11 +246,11 @@ class TransaksiView extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddTransaksiScreen()),
+            MaterialPageRoute(builder: (context) => const AddTransaksiScreen()),
           );
-        },
-        child: Icon(Icons.add), // Icon tambah
-        backgroundColor: Colors.green, // Warna latar belakang FAB
+        }, // Icon tambah
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.add), // Warna latar belakang FAB
       ),
     );
   }

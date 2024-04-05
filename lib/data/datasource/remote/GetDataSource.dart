@@ -1,9 +1,8 @@
-import 'package:final_project_flutter_api/data/model/GetTransaksi/GetTransaksiModel.dart';
 import 'package:http/http.dart' as http;
 
 class GetDataSource {
   Future<String> getDataSource() async {
-    var url = 'http://localhost:5262/api/Transaksi/GetTransaksi';
+    var url = 'https://app.actualsolusi.com/bsi/pos_resto/api/Transaksi/GetTransaksi';
     var response = await http.get(Uri.parse(url), 
     headers: <String, String>
     {

@@ -6,10 +6,10 @@ class GetTotalTransaksiRepo
   Future<int> getTotalTransaksi() async
   {
     var totalTransaksiString = await totalTransaksiData.getTotalTransaction();
-    print('TotalTransaksiStringRepo: ${totalTransaksiString}');
+    print('TotalTransaksiStringRepo: $totalTransaksiString');
     //
     int totalTransaksi = int.parse(totalTransaksiString);
-    print('TotalTransaksiRepo: ${totalTransaksi}');
+    print('TotalTransaksiRepo: $totalTransaksi');
     return totalTransaksi;
   
   }

@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 class GetTotalBalance {
   Future<String> getTotalBalance() async {
-    var url = 'http://localhost:5262/api/TransaksiFromEF/GetTotalBalance';
+    var url = 'https://app.actualsolusi.com/bsi/pos_resto/api/TransaksiFromEF/GetTotalBalance';
     var response = await http.get(
       Uri.parse(url),
       headers: {

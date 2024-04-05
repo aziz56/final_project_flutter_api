@@ -74,6 +74,7 @@ class GetTransaksiModel {
     );
   }
 
+  @override
   String toString() {
     return 'GetTransaksiModel{namaPelanggan: $namaPelanggan, namaMenu: $namaMenu, hargaMenu: $hargaMenu, jumlahPesanan: $jumlahPesanan, totalPenjualan: $totalPenjualan}';
   }

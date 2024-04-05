@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 class GetTotalTransaction {
   Future<String> getTotalTransaction() async {
-    var url = 'http://localhost:5262/api/TransaksiFromEF/GetCountTotalTransaction';
+    var url = 'https://app.actualsolusi.com/bsi/pos_resto/api/TransaksiFromEF/GetCountTotalTransaction';
     var response = await http.get(
       Uri.parse(url),
       headers: {

@@ -6,10 +6,10 @@ import 'package:final_project_flutter_api/data/datasource/local/hive_datasource.
 import 'package:hive/hive.dart';
 class AuthRemoteDataSource {
   HiveDataSource hiveDataSource = HiveDataSource();
-  final String baseUrl = 'http://localhost:5262/api/';
+  final String baseUrl = 'https://app.actualsolusi.com/bsi/pos_resto/api/';
   Future<AuthModel> login(String username, String password) async 
   {
-    var response = await http.post(Uri.parse(baseUrl + 'Users/login'),
+    var response = await http.post(Uri.parse('${baseUrl}Users/login'),
         headers: 
         {
           'accept': '*/*',
@@ -20,7 +20,6 @@ class AuthRemoteDataSource {
         ({
           'username': username,
           'password': password,
-          
         })
     );
     print('this is from authremote ${response.statusCode}');
